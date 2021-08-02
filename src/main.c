@@ -9,7 +9,7 @@ int main(int argc, const char* argv[]) {
         return 1;
     }
 
-    int64_t fd = open_file(argv[1], OPEN_WRITE);
+    int64_t fd = open_file(argv[1], OPEN_WRITE | OPEN_CREATE);
     if (fd < 0) {
         printf("Error while opening %s: %s\n", argv[1], strerror(fd));
         return 1;
