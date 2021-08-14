@@ -9,17 +9,17 @@ int main(int argc, const char* argv[]) {
         return 1;
     }
 
-    int64_t fd = open_file(argv[1], OPEN_WRITE | OPEN_CREATE);
+    isize fd = open_file(argv[1], OPEN_WRITE | OPEN_CREATE);
     if (fd < 0) {
         printf("Error while opening %s: %s\n", argv[1], strerror(fd));
         return 1;
     }
 
-    uint64_t length = 0;
+    usize length = 0;
     if (argc == 3)
         length = strtoul(argv[2], NULL, 10);
 
-    int64_t status = truncate_file(fd, length);
+    isize status = truncate_file(fd, length);
     if (status < 0) {
         printf("Error while truncating %s: %s\n", argv[1], strerror(status));
         return 1;
