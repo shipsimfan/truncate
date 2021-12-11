@@ -1,4 +1,4 @@
 name = truncate
 type = executable
-language = c
+languages = c
 
